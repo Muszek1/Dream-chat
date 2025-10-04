@@ -12,11 +12,11 @@ dependencies {
     compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
 
     // -- dream-platform --
-    implementation("cc.dreamcode.platform:bukkit:1.13.6")
+    implementation("cc.dreamcode.platform:bukkit:1.13.8")
     //implementation("cc.dreamcode.platform:bukkit-hook:1.13.6")
-    implementation("cc.dreamcode.platform:bukkit-config:1.13.6")
-    implementation("cc.dreamcode.platform:dream-command:1.13.6")
-    implementation("cc.dreamcode.platform:persistence:1.13.6")
+    implementation("cc.dreamcode.platform:bukkit-config:1.13.8")
+    implementation("cc.dreamcode.platform:dream-command:1.13.8")
+    implementation("cc.dreamcode.platform:persistence:1.13.8")
     implementation("eu.okaeri:okaeri-persistence:3.0.1-beta.4")
     implementation("eu.okaeri:okaeri-configs-yaml-bukkit:5.0.0-beta.4")
 
