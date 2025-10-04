@@ -1,12 +1,17 @@
 package cc.dreamcode.chat.punishments;
 
 import eu.okaeri.configs.OkaeriConfig;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
 public class TempMute extends OkaeriConfig {
+    @Setter
     private String reason;
-    private String mutedBy;
+    private final String mutedBy;
+    @Setter
     private long date;
-    private long until;
+    private final long until;
 
     public TempMute(String reason, String mutedBy, long date, long until) {
         this.reason = reason;
@@ -15,13 +20,4 @@ public class TempMute extends OkaeriConfig {
         this.until = until;
     }
 
-    public String getReason() { return reason; }
-    public String getMutedBy() { return mutedBy; }
-    public long getDate() { return date; }
-    public long getUntil() { return until; }
-
-    public void setReason(String reason) { this.reason = reason; }
-    public void setMutedBy(String mutedBy) { this.mutedBy = mutedBy; }
-    public void setDate(long date) { this.date = date; }
-    public void setUntil(long until) { this.until = until; }
 }

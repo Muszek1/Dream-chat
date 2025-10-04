@@ -11,7 +11,7 @@ idea {
 
 allprojects {
     group = "cc.dreamcode.chat"
-    version = "1.0.0"
+    version = "1.0.0-beta.1"
 
     apply(plugin = "java-library")
     apply(plugin = "com.gradleup.shadow")

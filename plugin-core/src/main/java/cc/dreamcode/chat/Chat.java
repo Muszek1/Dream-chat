@@ -8,10 +8,7 @@ import cc.dreamcode.chat.command.handler.InvalidSenderHandlerImpl;
 import cc.dreamcode.chat.command.handler.InvalidUsageHandlerImpl;
 import cc.dreamcode.chat.command.result.BukkitNoticeResolver;
 import cc.dreamcode.chat.config.PluginConfig;
-import cc.dreamcode.chat.listener.BanListener;
-import cc.dreamcode.chat.listener.MultiAccountListener;
-import cc.dreamcode.chat.listener.MuteCommandListener;
-import cc.dreamcode.chat.listener.MuteListener;
+import cc.dreamcode.chat.listener.*;
 import cc.dreamcode.chat.profile.ProfileRepository;
 import cc.dreamcode.chat.service.BanService;
 import cc.dreamcode.chat.service.DiscordWebhookService;
@@ -116,6 +113,7 @@ public final class Chat extends DreamBukkitPlatform implements DreamBukkitConfig
         componentService.registerComponent(MessageBroadcaster.class);
         componentService.registerComponent(MultiAccountListener.class);
         componentService.registerComponent(CheckBanCommand.class);
+        componentService.registerComponent(CheckBanMenuListener.class);
 
 
     }

@@ -1,10 +1,15 @@
 package cc.dreamcode.chat.punishments;
 
 import eu.okaeri.configs.OkaeriConfig;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
 public class Kick extends OkaeriConfig {
+    @Setter
     private String reason;
-    private String kickedBy;
+    private final String kickedBy;
+    @Setter
     private long date;
 
     public Kick(String reason, String kickedBy, long date) {
@@ -13,11 +18,4 @@ public class Kick extends OkaeriConfig {
         this.date = date;
     }
 
-    public String getReason() { return reason; }
-    public String getKickedBy() { return kickedBy; }
-    public long getDate() { return date; }
-
-    public void setReason(String reason) { this.reason = reason; }
-
-    public void setDate(long date) { this.date = date; }
 }

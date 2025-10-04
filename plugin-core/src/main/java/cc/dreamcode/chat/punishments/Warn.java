@@ -1,10 +1,15 @@
 package cc.dreamcode.chat.punishments;
 
 import eu.okaeri.configs.OkaeriConfig;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
 public class Warn extends OkaeriConfig {
+    @Setter
     private String reason;
-    private String warnedBy;
+    private final String warnedBy;
+    @Setter
     private long date;
 
     public Warn(String reason, String warnedBy, long date) {
@@ -13,11 +18,4 @@ public class Warn extends OkaeriConfig {
         this.date = date;
     }
 
-    public String getReason() { return reason; }
-    public String getWarnedBy() { return warnedBy; }
-    public long getDate() { return date; }
-
-    public void setReason(String reason) { this.reason = reason; }
-    public void setWarnedBy(String warnedBy) { this.warnedBy = warnedBy; }
-    public void setDate(long date) { this.date = date; }
 }

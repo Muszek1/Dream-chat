@@ -1,14 +1,18 @@
 package cc.dreamcode.chat.punishments;
 
 import eu.okaeri.configs.OkaeriConfig;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
 public class TempBan extends OkaeriConfig {
+    @Setter
     private String reason;
-    private String bannedBy;
-    private long date;   // kiedy nadano bana
-    private long until;  // czas zakończenia
+    private final String bannedBy;
+    @Setter
+    private long date;
+    private final long until;
 
-    public TempBan() {}
 
     public TempBan(String reason, String bannedBy, long date, long until) {
         this.reason = reason;
@@ -17,15 +21,4 @@ public class TempBan extends OkaeriConfig {
         this.until = until;
     }
 
-    // --- GETTERY ---
-    public String getReason() { return reason; }
-    public String getBannedBy() { return bannedBy; }
-    public long getDate() { return date; }
-    public long getUntil() { return until; }
-
-    // --- SETTERY ---
-    public void setReason(String reason) { this.reason = reason; }
-    public void setBannedBy(String bannedBy) { this.bannedBy = bannedBy; }
-    public void setDate(long date) { this.date = date; }
-    public void setUntil(long until) { this.until = until; }
 }
