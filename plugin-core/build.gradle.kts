@@ -40,7 +40,7 @@ dependencies {
 
 tasks.withType<ShadowJar> {
 
-    archiveFileName.set("Dream-Chat-${project.version}.jar")
+    archiveFileName.set("Dream-Bans-${project.version}.jar")
     mergeServiceFiles()
 
     relocate("com.cryptomorin", "cc.dreamcode.tpa.libs.com.cryptomorin")

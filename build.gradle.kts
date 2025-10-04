@@ -10,8 +10,8 @@ idea {
 }
 
 allprojects {
-    group = "cc.dreamcode.chat"
-    version = "1.0.0-beta.1"
+    group = "cc.dreamcode.bans"
+    version = "1.0.0-beta.2"
 
     apply(plugin = "java-library")
     apply(plugin = "com.gradleup.shadow")

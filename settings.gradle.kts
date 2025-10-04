@@ -5,6 +5,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "dream-chat"
+rootProject.name = "dream-bans"
 
 include(":plugin-core")

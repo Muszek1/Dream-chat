@@ -1,7 +1,7 @@
-main: "cc.dreamcode.chat.Chat"
-version: "1.0.0-beta.1"
-name: "Dream-Chat"
-description: "Dream-Chat plugin written by dreamcode.cc"
+main: "cc.dreamcode.bans.Bans"
+version: "1.0.0-beta.2"
+name: "Dream-Bans"
+description: "Dream-Bans plugin written by dreamcode.cc"
 website: "https://dreamcode.cc"
 author: "Muszek_"
 api-version: 1.13
