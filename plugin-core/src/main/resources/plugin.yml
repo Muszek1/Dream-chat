@@ -1,7 +1,7 @@
-main: "cc.dreamcode.tpa.Tpa"
+main: "cc.dreamcode.chat.Chat"
 version: "1.0.0"
-name: "Dream-Tpa"
-description: "Dream-Tpa plugin written by dreamcode.cc"
+name: "Dream-Chat"
+description: "Dream-Chat plugin written by dreamcode.cc"
 website: "https://dreamcode.cc"
 author: "Muszek_"
 api-version: 1.13

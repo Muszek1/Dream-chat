@@ -2,21 +2,23 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformer
 
 repositories {
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
-    maven("https://repo.codemc.io/repository/maven-public")
+    maven("https://repo.codemc.io/repository/nms")
     maven("https://oss.sonatype.org/content/repositories/snapshots")
+    maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
 }
 
 dependencies {
-
-    // -- spigot api -- (base)
-    compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
+    // -- paper api -- (base)
+    compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
 
     // -- dream-platform --
     implementation("cc.dreamcode.platform:bukkit:1.13.6")
     //implementation("cc.dreamcode.platform:bukkit-hook:1.13.6")
     implementation("cc.dreamcode.platform:bukkit-config:1.13.6")
     implementation("cc.dreamcode.platform:dream-command:1.13.6")
+    implementation("cc.dreamcode.platform:persistence:1.13.6")
+    implementation("eu.okaeri:okaeri-persistence:3.0.1-beta.4")
+    implementation("eu.okaeri:okaeri-configs-yaml-bukkit:5.0.0-beta.4")
 
     // -- dream-utilties --
     implementation("cc.dreamcode:utilities-adventure:1.5.7")
@@ -38,7 +40,7 @@ dependencies {
 
 tasks.withType<ShadowJar> {
 
-    archiveFileName.set("Dream-Tpa-${project.version}.jar")
+    archiveFileName.set("Dream-Chat-${project.version}.jar")
     mergeServiceFiles()
 
     relocate("com.cryptomorin", "cc.dreamcode.tpa.libs.com.cryptomorin")

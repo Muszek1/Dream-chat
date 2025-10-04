@@ -10,7 +10,7 @@ idea {
 }
 
 allprojects {
-    group = "cc.dreamcode.tpa"
+    group = "cc.dreamcode.chat"
     version = "1.0.0"
 
     apply(plugin = "java-library")

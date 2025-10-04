@@ -5,6 +5,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "dream-tpa"
+rootProject.name = "dream-chat"
 
 include(":plugin-core")
