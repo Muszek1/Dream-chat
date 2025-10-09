@@ -9,7 +9,10 @@ import cc.dreamcode.bans.command.handler.InvalidUsageHandlerImpl;
 import cc.dreamcode.bans.command.result.BukkitNoticeResolver;
 import cc.dreamcode.bans.config.PluginConfig;
 import cc.dreamcode.bans.listener.*;
+import cc.dreamcode.bans.profile.ProfileCache;
+import cc.dreamcode.bans.profile.ProfileController;
 import cc.dreamcode.bans.profile.ProfileRepository;
+import cc.dreamcode.bans.profile.ProfileService;
 import cc.dreamcode.bans.service.BanService;
 import cc.dreamcode.bans.service.DiscordWebhookService;
 import cc.dreamcode.bans.service.MuteService;
@@ -31,6 +34,7 @@ import cc.dreamcode.utilities.adventure.AdventureProcessor;
 import cc.dreamcode.utilities.adventure.AdventureUtil;
 import cc.dreamcode.utilities.bukkit.StringColorUtil;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
+import eu.okaeri.injector.annotation.Inject;
 import eu.okaeri.persistence.document.DocumentPersistence;
 import eu.okaeri.tasker.bukkit.BukkitTasker;
 import lombok.Getter;
@@ -49,8 +53,12 @@ public final class Bans extends DreamBukkitPlatform implements DreamBukkitConfig
         StringColorUtil.setColorProcessor(new AdventureProcessor());
     }
 
+    @Inject
+    private ProfileService profileService;
     @Override
     public void enable(@NonNull ComponentService componentService) {
+
+
 
         componentService.setDebug(false);
 
@@ -90,13 +98,15 @@ public final class Bans extends DreamBukkitPlatform implements DreamBukkitConfig
 
         });
 
-        // removed manual getComponent/getRepository/getPersistence calls
+        componentService.registerComponent(ProfileCache.class);
+        componentService.registerComponent(ProfileService.class);
+        componentService.registerComponent(ProfileController.class);
 
-        componentService.registerComponent(MuteService.class);
         componentService.registerComponent(BanService.class);
+        componentService.registerComponent(MuteService.class);
+
         componentService.registerComponent(BanCommand.class);
         componentService.registerComponent(UnbanCommand.class);
-        componentService.registerComponent(BanListener.class);
         componentService.registerComponent(TempbanCommand.class);
         componentService.registerComponent(KickCommand.class);
         componentService.registerComponent(WarnCommand.class);
@@ -108,12 +118,15 @@ public final class Bans extends DreamBukkitPlatform implements DreamBukkitConfig
         componentService.registerComponent(TempmuteCommand.class);
         componentService.registerComponent(MuteCommand.class);
         componentService.registerComponent(UnmuteCommand.class);
+        componentService.registerComponent(CheckBanCommand.class);
+
+        componentService.registerComponent(BanListener.class);
         componentService.registerComponent(MuteListener.class);
         componentService.registerComponent(MuteCommandListener.class);
-        componentService.registerComponent(MessageBroadcaster.class);
         componentService.registerComponent(MultiAccountListener.class);
-        componentService.registerComponent(CheckBanCommand.class);
         componentService.registerComponent(CheckBanMenuListener.class);
+
+        componentService.registerComponent(MessageBroadcaster.class);
 
 
     }
@@ -122,6 +135,9 @@ public final class Bans extends DreamBukkitPlatform implements DreamBukkitConfig
     @Override
     public void disable() {
         // features need to be call when server is stopping
+        if (this.profileService != null) {
+            this.profileService.saveAllAsync();
+        }
     }
 
 

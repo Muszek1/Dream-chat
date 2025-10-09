@@ -59,7 +59,6 @@ public class Profile extends Document {
     @CustomKey("mute-until")
     private long muteUntil;
 
-    // ==== HISTORIA KAR ====
     @CustomKey("bans")
     private java.util.List<Ban> bans = new java.util.ArrayList<>();
     public java.util.List<Ban> getBans() {
@@ -116,8 +115,6 @@ public class Profile extends Document {
         return this.warns;
     }
 
-
-    // ==== KONSTRUKTOR ====
     public Profile(UUID uuid) {}
 
     public UUID getUniqueId() {
